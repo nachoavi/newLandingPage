@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 import { Reveal } from "../anim/reveal";
 
 const TOOLS = [
-  { name: "TypeScript", since: "desde 2019", note: "todavía discuto si vale la pena en proyectos chicos. casi siempre sí." },
+  { name: "TypeScript", since: "desde 2019", note: "todavía discuto si vale la pena en proyectos pequeños. casi siempre sí." },
   { name: "PostgreSQL", since: "siempre", note: "antes de buscar otra base, leí los docs de la que uso." },
-  { name: "Next.js", since: "desde la 12", note: "tiene defectos. me los banco." },
+  { name: "Next.js", since: "desde la 12", note: "tiene defectos. los soporto porque el resto me convence." },
   { name: "Node + Fastify", since: "lo que decida el equipo", note: "express si hay legacy. fastify si lo elijo yo." },
   { name: "Tailwind", since: "desde la v2", note: "sí, leí las críticas. no me convencieron." },
   { name: "Docker + AWS", since: "el día a día", note: "lo justo. no soy DevOps puro." },

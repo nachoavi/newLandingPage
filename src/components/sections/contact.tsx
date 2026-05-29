@@ -22,16 +22,17 @@ export function Contact() {
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display uppercase text-[clamp(48px,9vw,140px)] leading-[0.86] mb-12"
           >
-            Si tenés un<br />
+            Si tienes un<br />
             problema <span className="italic normal-case lowercase">técnico</span>,<br />
-            escribime.
+            escríbeme.
           </motion.h2>
 
           <Reveal delay={0.2}>
             <p className="text-[18px] leading-relaxed max-w-xl mb-12 font-medium">
-              No tengo formulario. Los formularios se ignoran. Mandame un correo
-              con el contexto — qué estás construyendo, en qué punto estás, qué
-              te traba. Te respondo en 24-48 hs si tiene sentido para ambos.
+              No tengo formulario. Los formularios se ignoran. Escríbeme un
+              correo con el contexto — qué estás construyendo, en qué punto
+              estás, qué te traba. Respondo en 24-48 horas si hace sentido
+              para los dos.
             </p>
           </Reveal>
 
@@ -59,7 +60,7 @@ export function Contact() {
               <div className="opacity-70 mb-1">EN QUÉ ESTOY</div>
               <div className="text-[15px]">Aceptando proyectos para el próximo trimestre.</div>
               <div className="text-[14px] opacity-80 mt-1">
-                Prefiero equipos chicos. Backend o sistemas distribuidos.
+                Prefiero equipos pequeños. Backend o sistemas distribuidos.
               </div>
             </div>
           </Reveal>

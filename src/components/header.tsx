@@ -92,7 +92,7 @@ export function Header() {
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="hidden sm:inline-block font-mono text-[12px] text-on-surface-variant hover:text-tertiary transition-colors"
         >
-          escribime →
+          escríbeme →
         </motion.a>
       </div>
     </motion.header>

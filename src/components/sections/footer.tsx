@@ -12,7 +12,7 @@ export function Footer() {
             <span className="text-stroke">San Martín</span>
           </div>
           <div className="font-mono text-[12px] text-outline mt-6 max-w-md leading-relaxed">
-            Esta página la armé yo, sin templates. Si algo se ve raro en tu pantalla, escribime
+            Esta página la armé yo, sin templates. Si algo se ve raro en tu pantalla, escríbeme
             — me interesa saberlo.
           </div>
         </div>

@@ -7,7 +7,7 @@ const BELIEFS = [
   {
     n: "01",
     h: "Los conceptos antes que el código.",
-    p: "Si no sabés qué es el DOM, no vas a entender React. Si no entendés transacciones, Postgres te va a sorprender feo. Los atajos no existen — solo deuda postergada.",
+    p: "Si no sabes qué es el DOM, no vas a entender React. Si no entiendes transacciones, Postgres te va a sorprender feo. Los atajos no existen — solo deuda postergada.",
   },
   {
     n: "02",
@@ -48,7 +48,7 @@ export function Vision() {
             </h2>
             <p className="mt-8 text-[15px] text-on-surface-variant leading-relaxed max-w-sm">
               Cinco cosas que defiendo. No son universales — son las mías. Si
-              alguna no te cierra, mejor: hablamos.
+              alguna no te hace sentido, mejor: conversemos.
             </p>
           </Reveal>
         </div>

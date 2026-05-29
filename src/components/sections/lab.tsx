@@ -8,7 +8,7 @@ const FEATURED = {
   role: "Tech lead + backend",
   title: "Proyecto destacado",
   body:
-    "Acá va el caso real que más te enorgullezca. Cliente, dolor que tenía, qué construiste, qué pasó después. Sin metáforas, sin 'transformamos la industria'. Datos concretos: latencia bajó X, costo bajó Y, el equipo creció de A a B.",
+    "Aquí va el caso real que más te enorgullezca. Cliente, dolor que tenía, qué construiste, qué pasó después. Sin metáforas, sin 'transformamos la industria'. Datos concretos: latencia bajó X, costo bajó Y, el equipo creció de A a B.",
   tags: ["Postgres", "Node", "AWS"],
   link: "#",
 };
@@ -18,7 +18,7 @@ const SECONDARY = [
     year: "2024",
     title: "Algo que shippeaste el año pasado",
     body:
-      "Una línea sobre qué hacía y por qué lo recordás. Si fue un MVP que después escaló, mejor.",
+      "Una línea sobre qué hacía y por qué lo recuerdas. Si fue un MVP que después escaló, mejor.",
     tags: ["Next.js", "Stripe"],
   },
   {
@@ -124,8 +124,8 @@ export function Lab() {
       {/* Margin note — handwritten feel */}
       <div className="mt-20 max-w-md font-mono text-[13px] text-outline italic leading-relaxed">
         <span className="text-tertiary">*</span> No pongo screenshots porque la mayoría de
-        lo que hago vive detrás de un login o de un NDA. Si querés ver código real,
-        mandame un mensaje.
+        lo que hago vive detrás de un login o de un NDA. Si quieres ver código real,
+        escríbeme.
       </div>
     </section>
   );

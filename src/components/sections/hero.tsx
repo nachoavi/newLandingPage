@@ -55,13 +55,13 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.5 }}
             className="md:col-span-6 lg:col-span-5 text-[18px] leading-[1.55] text-on-surface-variant"
           >
-            Trabajo con equipos chicos en proyectos que importan. Backend,
+            Trabajo con equipos pequeños en proyectos que importan. Backend,
             arquitectura, y la parte aburrida que hace que un producto no se
             caiga el día que llega tracción.
             <br />
             <br />
-            No vendo magia. Vendo decisiones técnicas que se sostienen en seis
-            meses.
+            No vendo magia. Vendo decisiones técnicas que se sostienen seis
+            meses después.
           </motion.p>
 
           <motion.div
@@ -74,14 +74,14 @@ export function Hero() {
               href="#contact"
               className="group inline-flex items-center justify-between gap-3 border-b-2 border-on-background pb-3 text-[16px] hover:border-tertiary hover:text-tertiary transition-colors"
             >
-              <span>Mandame un correo</span>
+              <span>Escríbeme un correo</span>
               <span className="font-mono text-[14px] group-hover:translate-x-1 transition-transform">→</span>
             </a>
             <a
               href="#lab"
               className="group inline-flex items-center justify-between gap-3 border-b-2 border-outline-variant pb-3 text-[16px] text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors"
             >
-              <span>Mirá en qué ando</span>
+              <span>Mira en qué ando</span>
               <span className="font-mono text-[14px] group-hover:translate-x-1 transition-transform">↓</span>
             </a>
           </motion.div>
