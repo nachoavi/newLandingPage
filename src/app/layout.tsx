@@ -28,12 +28,12 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Ignacio San Martín // Software Architect",
   description:
-    "Senior Software Architect. Sistemas diseñados con criterio humano, oficio técnico y precisión arquitectónica.",
+    "Software Architect. Sistemas diseñados con criterio humano, oficio técnico y precisión arquitectónica.",
   metadataBase: new URL("https://ignaciosanmartin.dev"),
   openGraph: {
     title: "Ignacio San Martín // Software Architect",
     description:
-      "Senior Software Architect. Sistemas diseñados con criterio humano, oficio técnico y precisión arquitectónica.",
+      "Software Architect. Sistemas diseñados con criterio humano, oficio técnico y precisión arquitectónica.",
     type: "website",
   },
 };

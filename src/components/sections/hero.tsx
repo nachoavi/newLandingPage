@@ -72,7 +72,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="text-[18px] leading-relaxed mb-8 text-on-surface-variant"
           >
-            Senior Software Architect. Diseño sistemas con criterio humano y precisión
+            Software Architect. Diseño sistemas con criterio humano y precisión
             quirúrgica — donde el oficio, la experiencia y la arquitectura limpia
             mandan por sobre el ruido.
           </motion.p>
