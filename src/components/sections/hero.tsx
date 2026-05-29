@@ -1,43 +1,22 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import { SplitText } from "../anim/split-text";
-import { Magnetic } from "../anim/magnetic";
-
-function useUtcClock() {
-  const [time, setTime] = useState("--:--:--");
-  useEffect(() => {
-    const update = () => {
-      const d = new Date();
-      const hh = d.getUTCHours().toString().padStart(2, "0");
-      const mm = d.getUTCMinutes().toString().padStart(2, "0");
-      const ss = d.getUTCSeconds().toString().padStart(2, "0");
-      setTime(`${hh}:${mm}:${ss}`);
-    };
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
-  return time;
-}
+import { useRef } from "react";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const time = useUtcClock();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
   const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
   const fade = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <section
       ref={ref}
       id="top"
-      className="min-h-screen flex flex-col justify-center px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) relative overflow-hidden border-b-2 border-outline pt-24"
+      className="min-h-screen flex flex-col justify-end px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) relative overflow-hidden border-b-2 border-outline pt-32 pb-16"
     >
       <motion.div
         style={{ y: gridY }}
@@ -45,72 +24,68 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Top-right HUD */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.0, duration: 0.8 }}
-        className="absolute top-28 right-(--spacing-margin-mobile) md:right-(--spacing-margin-desktop) font-mono text-[12px] text-outline text-right hidden sm:block"
-      >
-        [UTC] <span className="text-tertiary">{time}</span>
-      </motion.div>
+      <motion.div style={{ opacity: fade }} className="max-w-(--spacing-container-max) mx-auto w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          className="font-mono text-[12px] text-outline mb-8"
+        >
+          ↳ Ignacio San Martín, La Unión / Chile
+        </motion.div>
 
-      <motion.div style={{ y: titleY, opacity: fade }} className="max-w-(--spacing-container-max) mx-auto w-full relative z-10">
-        <h1 className="font-display uppercase mb-10 leading-[0.88] tracking-tighter text-[clamp(56px,11vw,160px)]">
-          <SplitText text="IGNACIO" as="span" delay={0.1} className="block" />
-          <SplitText text="SAN MARTÍN" as="span" delay={0.35} className="block text-stroke" />
-          <span className="block text-tertiary mt-2 md:mt-4">
-            <SplitText text="SOFTWARE" as="span" delay={0.65} />
-            <span className="cursor-block ml-2 align-middle" />
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4, delay: 0.1 }}
+          className="font-display uppercase mb-12 leading-[0.86] tracking-tighter text-[clamp(56px,12vw,180px)]"
+        >
+          Hago{" "}
+          <span className="italic font-display text-tertiary normal-case lowercase tracking-tight">
+            software
           </span>
-        </h1>
+          <br />
+          que dura.
+        </motion.h1>
 
-        <div className="max-w-2xl border-l-4 border-tertiary pl-6 md:pl-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-[18px] leading-relaxed mb-8 text-on-surface-variant"
+            transition={{ duration: 1, delay: 0.5 }}
+            className="md:col-span-6 lg:col-span-5 text-[18px] leading-[1.55] text-on-surface-variant"
           >
-            Software Architect. Diseño sistemas con criterio humano y precisión
-            quirúrgica — donde el oficio, la experiencia y la arquitectura limpia
-            mandan por sobre el ruido.
+            Trabajo con equipos chicos en proyectos que importan. Backend,
+            arquitectura, y la parte aburrida que hace que un producto no se
+            caiga el día que llega tracción.
+            <br />
+            <br />
+            No vendo magia. Vendo decisiones técnicas que se sostienen en seis
+            meses.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="md:col-span-5 md:col-start-8 flex flex-col gap-3"
           >
-            <Magnetic>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-3 bg-on-background text-background font-mono text-[12px] px-8 py-4 hard-shadow hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
-              >
-                INITIATE_COLLAB
-                <span aria-hidden>→</span>
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href="#lab"
-                className="inline-flex items-center gap-3 border-2 border-outline text-on-background font-mono text-[12px] px-8 py-4 hover:bg-surface-variant transition-colors"
-              >
-                VIEW_ARCHIVE
-              </a>
-            </Magnetic>
+            <a
+              href="#contact"
+              className="group inline-flex items-center justify-between gap-3 border-b-2 border-on-background pb-3 text-[16px] hover:border-tertiary hover:text-tertiary transition-colors"
+            >
+              <span>Mandame un correo</span>
+              <span className="font-mono text-[14px] group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+            <a
+              href="#lab"
+              className="group inline-flex items-center justify-between gap-3 border-b-2 border-outline-variant pb-3 text-[16px] text-on-surface-variant hover:border-tertiary hover:text-tertiary transition-colors"
+            >
+              <span>Mirá en qué ando</span>
+              <span className="font-mono text-[14px] group-hover:translate-x-1 transition-transform">↓</span>
+            </a>
           </motion.div>
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-10 left-(--spacing-margin-mobile) md:left-(--spacing-margin-desktop) font-mono text-[12px] text-outline"
-      >
-        STATUS: <span className="text-tertiary">AVAILABLE</span>
       </motion.div>
     </section>
   );

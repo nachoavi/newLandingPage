@@ -3,15 +3,15 @@
 import { motion } from "motion/react";
 import { Reveal } from "../anim/reveal";
 
-const STACK = [
-  { code: "01", name: "TYPESCRIPT", glyph: "TS" },
-  { code: "02", name: "NEXT_JS", glyph: "▲" },
-  { code: "03", name: "POSTGRES", glyph: "≣" },
-  { code: "04", name: "AWS", glyph: "☁" },
-  { code: "05", name: "RUST", glyph: "⚙" },
-  { code: "06", name: "DOCKER", glyph: "⎈" },
-  { code: "07", name: "GRAPHQL", glyph: "◆" },
-  { code: "08", name: "VERCEL", glyph: "△" },
+const TOOLS = [
+  { name: "TypeScript", since: "desde 2019", note: "todavía discuto si vale la pena en proyectos chicos. casi siempre sí." },
+  { name: "PostgreSQL", since: "siempre", note: "antes de buscar otra base, leí los docs de la que uso." },
+  { name: "Next.js", since: "desde la 12", note: "tiene defectos. me los banco." },
+  { name: "Node + Fastify", since: "lo que decida el equipo", note: "express si hay legacy. fastify si lo elijo yo." },
+  { name: "Tailwind", since: "desde la v2", note: "sí, leí las críticas. no me convencieron." },
+  { name: "Docker + AWS", since: "el día a día", note: "lo justo. no soy DevOps puro." },
+  { name: "Rust", since: "en side projects", note: "para herramientas que tienen que ser rápidas y no fallar." },
+  { name: "Git, terminal, neovim", since: "hace rato", note: "el IDE es opinión, no religión." },
 ];
 
 export function Stack() {
@@ -21,66 +21,46 @@ export function Stack() {
       className="relative border-b-2 border-outline bg-background overflow-hidden"
     >
       <div className="py-24 md:py-32 px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop)">
-        <Reveal className="mb-12 md:mb-20">
-          <div className="flex items-baseline gap-4 border-l-4 border-tertiary pl-6">
-            <span className="font-mono text-[12px] text-tertiary">/03</span>
-            <h2 className="font-display uppercase text-[clamp(40px,7vw,84px)] leading-[0.85]">
-              THE STACK
-            </h2>
-          </div>
+        <Reveal className="mb-16 md:mb-20 max-w-3xl">
+          <div className="font-mono text-[12px] text-tertiary mb-6">— 03 / Herramientas</div>
+          <h2 className="font-display uppercase text-[clamp(40px,7vw,96px)] leading-[0.88]">
+            Con lo que <span className="italic normal-case lowercase">trabajo</span>
+            <br />
+            todos los días.
+          </h2>
+          <p className="mt-8 text-[16px] text-on-surface-variant max-w-xl leading-relaxed">
+            No es una lista de buzzwords. Son las herramientas que sé bien — y la
+            opinión que tengo sobre cada una.
+          </p>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 mb-16">
-          {STACK.map((item, i) => (
+        <div className="max-w-4xl">
+          {TOOLS.map((tool, i) => (
             <motion.div
-              key={item.code}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              key={tool.name}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-5%" }}
-              transition={{
-                duration: 0.5,
-                delay: (i % 4) * 0.08,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={{ y: -4 }}
-              className="technical-border aspect-square p-4 md:p-5 flex flex-col justify-between hover:bg-tertiary hover:text-background hover:border-tertiary transition-colors group cursor-default"
+              transition={{ duration: 0.6, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+              className="grid grid-cols-12 gap-4 py-5 border-t border-outline-variant items-baseline group hover:bg-surface-container-low transition-colors"
             >
-              <span className="font-mono text-[12px] opacity-60 group-hover:opacity-100">
-                {item.code}
-              </span>
-              <div className="flex flex-col">
-                <span className="font-display text-[32px] md:text-[40px] leading-none mb-2 group-hover:scale-110 transition-transform origin-left">
-                  {item.glyph}
-                </span>
-                <span className="font-mono text-[11px] md:text-[12px] tracking-wider">
-                  {item.name}
-                </span>
+              <div className="col-span-1 font-mono text-[12px] text-outline">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="col-span-11 md:col-span-3 font-display uppercase text-[24px] md:text-[28px] leading-none group-hover:text-tertiary transition-colors">
+                {tool.name}
+              </div>
+              <div className="col-span-6 md:col-span-2 font-mono text-[12px] text-outline col-start-2 md:col-start-auto">
+                {tool.since}
+              </div>
+              <div className="col-span-12 md:col-span-6 text-[15px] text-on-surface-variant leading-relaxed">
+                {tool.note}
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {[
-            {
-              k: "// CORE_METHODOLOGY",
-              v: "Cada línea de código es una decisión arquitectónica. Priorizo protocolos de 'Reduced Complexity' para que el rendimiento no comprometa la estabilidad del sistema.",
-            },
-            {
-              k: "// DATA_INTEGRITY",
-              v: "La seguridad no es una capa: es el cimiento. Encriptación endurecida en cada punto de transacción, garantizando entornos zero-trust para todas las operaciones SaaS.",
-            },
-          ].map((card, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div className="p-8 md:p-10 bg-surface-container-high border-2 border-outline hover:border-tertiary transition-colors relative overflow-hidden group">
-                <div className="absolute -top-20 -right-20 w-40 h-40 bg-tertiary/10 rounded-full blur-3xl group-hover:bg-tertiary/30 transition-colors duration-700" />
-                <h4 className="font-mono text-[12px] mb-4 text-tertiary relative">{card.k}</h4>
-                <p className="text-[17px] leading-relaxed text-on-surface-variant relative">
-                  {card.v}
-                </p>
-              </div>
-            </Reveal>
-          ))}
+          <div className="border-t border-outline-variant py-5 font-mono text-[12px] text-outline">
+            *También uso lo que el proyecto necesite. La herramienta no es la respuesta — el criterio sí.
+          </div>
         </div>
       </div>
     </section>

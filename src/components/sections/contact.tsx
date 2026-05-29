@@ -1,139 +1,80 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useState } from "react";
-import { SplitText } from "../anim/split-text";
 import { Reveal } from "../anim/reveal";
 
 export function Contact() {
-  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("sending");
-    setTimeout(() => {
-      setStatus("done");
-      (e.target as HTMLFormElement).reset();
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1400);
-  };
-
   return (
     <section
       id="contact"
       className="py-24 md:py-32 px-(--spacing-margin-mobile) md:px-(--spacing-margin-desktop) bg-tertiary text-background relative overflow-hidden"
     >
-      <div className="max-w-(--spacing-container-max) mx-auto border-4 border-background p-8 md:p-16 lg:p-24 relative bg-tertiary">
-        <div className="absolute top-4 right-4 font-mono text-[12px] flex items-center gap-2">
-          <motion.span
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.2, repeat: Infinity }}
-            className="w-2 h-2 bg-background rounded-full"
-          />
-          [SIGNAL: 100%]
-        </div>
+      <div className="max-w-(--spacing-container-max) mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <div className="font-mono text-[12px] mb-6 opacity-80">— 05 / Hablemos</div>
+          </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div>
-            <Reveal>
-              <span className="font-mono text-[12px] block mb-4 tracking-[0.3em]">
-                /05 // OPEN_CHANNEL
-              </span>
-            </Reveal>
-
-            <h2 className="font-display uppercase text-[clamp(56px,9vw,128px)] leading-[0.85] mb-8">
-              <SplitText text="INITIATE" inView className="block" />
-              <SplitText text="COLLAB" inView delay={0.15} className="block" />
-              <SplitText text="_01" inView delay={0.3} className="inline-block" />
-            </h2>
-
-            <Reveal delay={0.2}>
-              <p className="text-[18px] mb-10 font-bold max-w-md leading-relaxed">
-                ¿Listo para estabilizar tu visión? Conectate al protocolo
-                para consultoría arquitectónica y desarrollo de sistemas.
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.3}>
-              <div className="flex flex-col gap-3 font-mono text-[13px] max-w-md">
-                {[
-                  ["STATUS", "AVAILABLE"],
-                  ["SLOTS", "02 REMAINING"],
-                  ["TZ", "UTC-04 // CLT"],
-                  ["EMAIL", "luis17.sanmartin@gmail.com"],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex justify-between border-b-2 border-background py-2"
-                  >
-                    <span className="opacity-70">{k}:</span>
-                    <span className="font-bold">{v}</span>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display uppercase text-[clamp(48px,9vw,140px)] leading-[0.86] mb-12"
+          >
+            Si tenés un<br />
+            problema <span className="italic normal-case lowercase">técnico</span>,<br />
+            escribime.
+          </motion.h2>
 
           <Reveal delay={0.2}>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <Field label="USER_IDENTIFICATION" name="email" type="email" placeholder="name@domain.com" />
-              <Field label="ORGANIZATION" name="org" type="text" placeholder="Optional" />
+            <p className="text-[18px] leading-relaxed max-w-xl mb-12 font-medium">
+              No tengo formulario. Los formularios se ignoran. Mandame un correo
+              con el contexto — qué estás construyendo, en qué punto estás, qué
+              te traba. Te respondo en 24-48 hs si tiene sentido para ambos.
+            </p>
+          </Reveal>
 
-              <div className="space-y-2">
-                <label className="font-mono text-[12px] block tracking-widest font-bold">
-                  PROJECT_SCOPE
-                </label>
-                <textarea
-                  required
-                  name="message"
-                  rows={5}
-                  placeholder="Describí los requerimientos arquitectónicos..."
-                  className="w-full bg-transparent border-2 border-background p-4 font-mono text-[13px] placeholder:text-background/50 focus:bg-background focus:text-tertiary focus:outline-none transition-all resize-none"
-                />
+          <Reveal delay={0.3}>
+            <a
+              href="mailto:luis17.sanmartin@gmail.com?subject=Hola%20Ignacio"
+              className="inline-block font-display text-[clamp(28px,4vw,56px)] leading-none border-b-4 border-background hover:border-background/60 transition-colors"
+            >
+              luis17.sanmartin@gmail.com
+            </a>
+          </Reveal>
+        </div>
+
+        <div className="lg:col-span-4 lg:col-start-9 flex flex-col gap-8">
+          <Reveal delay={0.2}>
+            <div className="font-mono text-[12px] leading-relaxed">
+              <div className="opacity-70 mb-1">DÓNDE ESTOY</div>
+              <div className="text-[15px]">La Unión, Los Ríos, Chile</div>
+              <div className="text-[14px] opacity-80">UTC-04 (CLT)</div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="font-mono text-[12px] leading-relaxed">
+              <div className="opacity-70 mb-1">EN QUÉ ESTOY</div>
+              <div className="text-[15px]">Aceptando proyectos para el próximo trimestre.</div>
+              <div className="text-[14px] opacity-80 mt-1">
+                Prefiero equipos chicos. Backend o sistemas distribuidos.
               </div>
+            </div>
+          </Reveal>
 
-              <motion.button
-                type="submit"
-                whileHover={{ x: 4, y: -4 }}
-                whileTap={{ x: 0, y: 0 }}
-                disabled={status !== "idle"}
-                className="w-full bg-background text-tertiary font-display text-[28px] md:text-[36px] py-5 md:py-6 leading-none transition-shadow hover:shadow-[-8px_8px_0px_0px_rgba(0,0,0,0.5)] disabled:opacity-60"
-              >
-                {status === "idle" && "TRANSMIT_DATA →"}
-                {status === "sending" && "TRANSMITTING..."}
-                {status === "done" && "SUCCESS // LOGGED ✓"}
-              </motion.button>
-            </form>
+          <Reveal delay={0.4}>
+            <div className="font-mono text-[12px] leading-relaxed">
+              <div className="opacity-70 mb-1">TAMBIÉN</div>
+              <div className="flex flex-col gap-1 text-[14px]">
+                <a href="https://github.com/nachoavi" className="border-b border-background/40 hover:border-background self-start">github / nachoavi</a>
+                <a href="#" className="border-b border-background/40 hover:border-background self-start">linkedin</a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </div>
     </section>
-  );
-}
-
-function Field({
-  label,
-  name,
-  type,
-  placeholder,
-}: {
-  label: string;
-  name: string;
-  type: string;
-  placeholder: string;
-}) {
-  return (
-    <div className="space-y-2">
-      <label className="font-mono text-[12px] block tracking-widest font-bold">
-        {label}
-      </label>
-      <input
-        name={name}
-        type={type}
-        placeholder={placeholder}
-        required={type === "email"}
-        className="w-full bg-transparent border-2 border-background p-4 font-mono text-[13px] placeholder:text-background/50 focus:bg-background focus:text-tertiary focus:outline-none transition-all"
-      />
-    </div>
   );
 }

@@ -4,10 +4,10 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
 
 const NAV = [
-  { label: "VISION", href: "#vision" },
-  { label: "LAB", href: "#lab" },
-  { label: "PROTOCOL", href: "#protocol" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "Trabajo", href: "#lab" },
+  { label: "Herramientas", href: "#protocol" },
+  { label: "Creencias", href: "#vision" },
+  { label: "Contacto", href: "#contact" },
 ];
 
 export function Header() {
@@ -18,7 +18,7 @@ export function Header() {
     ["rgba(19,19,19,0)", "rgba(19,19,19,0.85)"]
   );
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
-  const [active, setActive] = useState<string>("VISION");
+  const [active, setActive] = useState<string>("Trabajo");
 
   useEffect(() => {
     const ids = NAV.map((n) => n.href.slice(1));
@@ -68,7 +68,7 @@ export function Header() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className={`font-mono text-[12px] uppercase tracking-[0.15em] transition-colors relative ${
+              className={`font-mono text-[12px] tracking-wide transition-colors relative ${
                 active === item.label
                   ? "text-tertiary"
                   : "text-on-surface-variant hover:text-on-background"
@@ -86,13 +86,13 @@ export function Header() {
         </nav>
 
         <motion.a
-          href="#contact"
+          href="mailto:luis17.sanmartin@gmail.com"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-primary text-on-primary px-5 py-2 font-mono text-[12px] hover:bg-tertiary hover:text-background transition-colors active:translate-y-px"
+          className="hidden sm:inline-block font-mono text-[12px] text-on-surface-variant hover:text-tertiary transition-colors"
         >
-          INITIATE
+          escribime →
         </motion.a>
       </div>
     </motion.header>
