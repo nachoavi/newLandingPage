@@ -59,7 +59,7 @@ export function Contact() {
                 {[
                   ["STATUS", "AVAILABLE"],
                   ["SLOTS", "02 REMAINING"],
-                  ["TZ", "UTC-03"],
+                  ["TZ", "UTC-04 // CLT"],
                   ["EMAIL", "luis17.sanmartin@gmail.com"],
                 ].map(([k, v]) => (
                   <div

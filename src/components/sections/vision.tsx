@@ -72,7 +72,7 @@ export function Vision() {
               </div>
               <div className="font-mono text-[12px] text-outline">
                 <div className="text-on-background">— IGNACIO SAN MARTÍN</div>
-                <div>BUENOS AIRES // 2026</div>
+                <div>LA UNIÓN, CHILE // 2026</div>
               </div>
             </div>
           </Reveal>
