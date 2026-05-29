@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { Reveal } from "../anim/reveal";
 
 const FEATURED = {
@@ -11,6 +12,7 @@ const FEATURED = {
     "Sitio para un estudio de tatuajes en La Unión. Portafolio filtrable por estilo, reservas con depósito, confirmación directa por WhatsApp e integración con Instagram y Google Maps. Bilingüe ES/EN. La idea era simple: que un cliente entre, vea el trabajo del tatuador por estilo, y agende sin pelearse con un formulario.",
   tags: ["Next.js", "Tailwind", "WhatsApp API", "Vercel"],
   link: "https://cazuela-tattoo.vercel.app/",
+  image: "/projects/cazuela-tattoo.png",
 };
 
 const SECONDARY = [
@@ -53,15 +55,25 @@ export function Lab() {
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-20 lg:mb-32 group"
       >
-        <div className="lg:col-span-7 lg:col-start-1 aspect-[5/4] lg:aspect-[16/11] bg-surface relative overflow-hidden border-2 border-outline">
-          <div className="absolute inset-0 bg-gradient-to-br from-tertiary/20 via-transparent to-tertiary/5" />
-          <div className="absolute inset-0 grid-bg opacity-30" />
-          <div className="absolute inset-0 flex items-end p-8">
-            <span className="font-display text-[clamp(80px,12vw,200px)] text-stroke leading-none">
-              01
-            </span>
+        <a
+          href={FEATURED.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lg:col-span-7 lg:col-start-1 aspect-[5/4] lg:aspect-[16/11] bg-surface relative overflow-hidden border-2 border-outline block group/img"
+        >
+          <Image
+            src={FEATURED.image}
+            alt={`Captura de ${FEATURED.title}`}
+            fill
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            priority
+            className="object-cover object-top grayscale-[0.4] group-hover/img:grayscale-0 transition-[filter,transform] duration-700 group-hover/img:scale-[1.02]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-background/40 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute top-4 left-4 font-mono text-[11px] text-on-background bg-background/70 backdrop-blur px-2 py-1 border border-outline">
+            01 / cazuela-tattoo.vercel.app ↗
           </div>
-        </div>
+        </a>
 
         <div className="lg:col-span-4 lg:col-start-9 flex flex-col justify-end gap-6">
           <div className="font-mono text-[12px] text-outline flex gap-6">
