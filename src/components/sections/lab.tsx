@@ -5,12 +5,12 @@ import { Reveal } from "../anim/reveal";
 
 const FEATURED = {
   year: "2025",
-  role: "Tech lead + backend",
-  title: "Proyecto destacado",
+  role: "Diseño + desarrollo",
+  title: "Cazuela Tattoo",
   body:
-    "Aquí va el caso real que más te enorgullezca. Cliente, dolor que tenía, qué construiste, qué pasó después. Sin metáforas, sin 'transformamos la industria'. Datos concretos: latencia bajó X, costo bajó Y, el equipo creció de A a B.",
-  tags: ["Postgres", "Node", "AWS"],
-  link: "#",
+    "Sitio para un estudio de tatuajes en La Unión. Portafolio filtrable por estilo, reservas con depósito, confirmación directa por WhatsApp e integración con Instagram y Google Maps. Bilingüe ES/EN. La idea era simple: que un cliente entre, vea el trabajo del tatuador por estilo, y agende sin pelearse con un formulario.",
+  tags: ["Next.js", "Tailwind", "WhatsApp API", "Vercel"],
+  link: "https://cazuela-tattoo.vercel.app/",
 };
 
 const SECONDARY = [
@@ -81,9 +81,11 @@ export function Lab() {
           </div>
           <a
             href={FEATURED.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-mono text-[12px] mt-2 border-b border-on-background pb-1 self-start hover:text-tertiary hover:border-tertiary"
           >
-            Leer caso completo →
+            Ver el sitio en vivo ↗
           </a>
         </div>
       </motion.article>
